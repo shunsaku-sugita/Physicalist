@@ -12,16 +12,37 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <form class="navbar-form navbar-left" role="search">
-				      <div class="form-group">
-					     <input type="text" class="form-control" placeholder="作品名、アーティスト名">
-				      </div>
-				      <button type="submit" class="btn btn-default">検索</button>
-		      	</form>
-          </li>
-          <li><%= link_to 'Signup', signup_path %></li>
-          <li><a href="#">Login</a></li>
+          <% if logged_in? %>
+            <li>
+              <form class="navbar-form navbar-left" role="search">
+  				      <div class="form-group">
+  					     <input type="text" class="form-control" placeholder="作品名、アーティスト名">
+  				      </div>
+  				      <button type="submit" class="btn btn-default">Search</button>
+  		      	</form>
+            </li>
+            <li class="dropdpwn">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="gravator">
+                  <img src="<%= gravatar_url(current_user, size: 20) %>" alt="" class="img-circle">
+                </span>
+                <%= current_user.name %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to 'マイページ', user_path(current_user) %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <%= link_to 'ログアウト', logout_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to 'Signup', signup_path %></li>
+            <li><%= link_to 'Login', login_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>

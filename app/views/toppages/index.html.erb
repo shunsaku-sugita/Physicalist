@@ -3,7 +3,9 @@
     <div class="cover-inner">
       <div class="cover-contents">
         <h1>好きな音楽を手元に。</h1>
-        <a href ="#" class="btn btn-primary btn-lg">Physicalistを始める</a>
+          <% unless logged_in? %>
+            <%= link_to 'Physicalistを始める', signup_path, class: 'btn btn-primary btn-lg' %>
+          <% end %>
       </div>
     </div>
   </div>
