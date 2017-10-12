@@ -9,10 +9,10 @@ footer {
 }
 /* cover */
 .cover {
-  margin-top: -20px;
   margin-bottom: 20px;
   width: 100%;
-  height: 300px;
+  height: 450px;
+  background: url("/images/physicalist sample1.jpeg");
   background-size: cover;
 }
 .cover .cover-inner {
@@ -28,7 +28,55 @@ footer {
 }
 .cover .cover-inner .cover-contents h1 {
   margin: 0 0 20px 0;
-  color: black;
+  color: white;
   font-weight: bold;
   letter-spacing: 0.15em;
+}
+
+/* navbar */
+.navbar-search {
+  margin-top: 9px;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+.search-bar {
+  height: 52px;
+}
+.input-group {
+  width: 70%;
+  margin-top: 10px;
+  margin-left: 280px;
+}
+.row {
+  margin-top: 52px;
+}
+
+/* item */
+.item .panel-heading {
+  height: 200px;
+}
+.item .panel-heading img {
+  height: 100%;
+  max-width: 100%;
+}
+.panel-body {
+  background-color: #f2f2f2;
+  height: 40px;
+  
+}
+.panel-footer {
+  background-color: #f2f2f2;
+  height: 50px;
+}
+
+p.item-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+.item-row {
+  margin-top: 20px;
 }
