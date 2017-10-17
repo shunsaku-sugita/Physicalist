@@ -5,16 +5,13 @@
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading text-center">
-              <img src="<%= item.jacket_url %>" alt="" >
-            </div>
-            <div class="panel-body">
-              <p class="item-content"><%= item.title %></p>
-            </div>
-            <div class="panel-body">
-              <p class="item-content"><%= item.artist %></p>
-            </div>
-            <div class="panel-footer">
-              
+              <%= link_to image_tag(item.jacket_url), item.item_url , class: 'img' %>
+              <p class="item-content text-center"><%= item.title %></p>
+              <p class="item-content text-center"><%= item.artist %></p>
+              <div class="buttons text-center">
+                <%= render "ownerships/want_button", item: item  %>
+                <%= render "ownerships/have_button", item: item  %>
+              </div>
             </div>
           </div>
         </div>

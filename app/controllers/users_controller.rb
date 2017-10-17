@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @want_items = @user.want_items
+    @count_want = @user.want_items.count
+    @count_have = @user.have_items.count
   end
 
   def new
@@ -17,6 +20,13 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render 'new'
     end
+  end
+  
+  def have_items
+    @user = User.find(params[:id])
+    @have_items = @user.have_items
+    @count_have = @user.have_items.count
+    @count_want = @user.want_items.count
   end
   
   private

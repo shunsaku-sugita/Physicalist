@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   before_action :require_use_logged_in
   
+  def show
+    @item = Item.find(params[:id])
+  end
+  
   def new
     @items = []
     
@@ -32,25 +36,5 @@ class ItemsController < ApplicationController
         @items << item
       end
     end
-  end
-  
-  private
-  
-  def read(result)
-    jan_code = result['jan']
-    title = result['title']
-    artist = result['artist_name']
-    item_url = result['item_url']
-    jacket_url = result['large_image_url']
-    release_date = result['sales_date']
-    
-    return {
-      jan_code: jan_code,
-      title: title,
-      artist: artist,
-      item_url: item_url,
-      jacket_url: jacket_url,
-      release_date: release_date,
-    }
   end
 end

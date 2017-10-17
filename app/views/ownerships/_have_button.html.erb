@@ -1,0 +1,13 @@
+<% if current_user.have?(item) %>
+  <%= form_tag(ownership_path(item.id), method: :delete) do %>
+    <%= hidden_field_tag :item_id, item.id %>
+    <%= hidden_field_tag :type, 'Have' %>
+    <%= submit_tag 'My Shelf ', class: 'btn btn-danger' %>
+  <% end %>
+<% else %>
+  <%= form_tag(new_ownership_path, method: :get) do %>
+    <%= hidden_field_tag :jan_code, item.jan_code %>
+    <%= hidden_field_tag :type, 'Have' %>
+    <%= submit_tag 'My Shelf ', class: 'btn btn-default' %>
+  <% end %>
+<% end %>

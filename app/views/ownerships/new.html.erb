@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+    <div class="item">
+      <div class="panel-default">
+        <div class="panel-heading panel-item text-center">
+          <img src="<%= @item.jacket_url %>" alt="">
+        </div>
+        <div class="panel-body text-center">
+          <p><%= @item.title %></p>
+          <p><%= @item.artist %></p>
+          <%= form_for(@ownership) do |f| %>
+            <%= hidden_field_tag :jan_code, @item.jan_code %>
+            <%= hidden_field_tag :type, 'Have' %>
+            <div class="form-group">
+              <%= f.label :format, 'フォーマット' %>
+              <%= f.select :format, [["CD","CD"],["レコード","レコード"],["カセットテープ","カセットテープ"]], class: "form-group" %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.label :price, '購入金額' %>
+              <%= f.text_field :price, class: "form_control" %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.submit 'Add to My Shelf', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
